@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta
+      name="description"
+      content="Kiều Văn Lân - Experienced Flutter App Developer | Mobile Native (Base)"
+    />
+    <meta
+      name="keywords"
+      content="Kiều Văn Lân, Flutter Developer, Mobile App Developer, Frontend Developer, App Developer, Mobile Application Developer, IoT apps, Android App Developer, iOS App Developer "
+    />
+    <meta name="author" content="Kiều Văn Lân" />
+
+    <!-- Open Graph / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lankv.github.io/" />
+    <meta
+      property="og:title"
+      content="Kiều Văn Lân - Flutter Developer | Mobile App Developer | Frontend Developer"
+    />
+    <meta
+      property="og:description"
+      content="Kiều Văn Lân - Experienced Flutter App Developer | Frontend Developer (React/Next.js)"
+    />
+    <meta
+      property="og:image"
+      content="https://lankv.github.io/images/lankv.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://lankv.github.io/" />
+    <meta
+      name="twitter:title"
+      content="Kiều Văn Lân - Flutter Developer | Mobile App Developer | Frontend Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Kiều Văn Lân - Experienced Flutter App Developer | Frontend Developer (React/Next.js)"
+    />
+    <meta
+      name="twitter:image"
+      content="https://lankv.github.io/images/lankv.jpg"
+    />
+
+    <title>
+      Kiều Văn Lân - Flutter Developer | Mobile App Developer | Frontend
+      Developer
+    </title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Root colors */
+      :root {
+        --bg-primary: #0a0e27;
+        --bg-secondary: #151932;
+        --bg-tertiary: #1e2140;
+        --text-primary: #e6e6e6;
+        --text-secondary: #a0a0a0;
+        --accent-primary: #64ffda;
+        --accent-secondary: #f06292;
+        --code-green: #7ee787;
+        --code-blue: #79c0ff;
+      }
+      /* Base */
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      /* Cursor */
+      .cursor,
+      .cursor-follower {
+        position: fixed;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        border-radius: 50%;
+        z-index: 9999;
+        mix-blend-mode: difference;
+      }
+      .cursor {
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--accent-primary);
+        transition: all 0.1s ease;
+      }
+      .cursor-follower {
+        width: 40px;
+        height: 40px;
+        background: rgba(100, 255, 218, 0.1);
+        transition: all 0.25s ease;
+        z-index: 9998;
+      }
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(270deg, #b6e5f2, #7daeeb, #7dcceb);
+        background-size: 600% 600%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: auroraShift 8s ease infinite;
+      }
+      @keyframes auroraShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      /* typing cursor */
+      .typing-cursor {
+        display: inline-block;
+        width: 3px;
+        height: 1.5rem;
+        background: var(--code-green);
+        animation: blink 1s steps(2) infinite;
+      }
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
+        }
+      }
+      /* Particles */
+      .particle {
+        position: absolute;
+        background: var(--accent-primary);
+        border-radius: 50%;
+        opacity: 0.3;
+        animation: float 15s linear infinite;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) translateX(0);
+        }
+        100% {
+          transform: translateY(-100px) translateX(100px);
+        }
+      }
+      /* Loader */
+      #loader {
+        position: fixed;
+        inset: 0;
+        background: var(--bg-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+        transition: opacity 0.5s;
+      }
+      .loader-progress {
+        height: 100%;
+        background: var(--accent-primary);
+        width: 0;
+        animation: loading 2s ease-in-out forwards;
+      }
+      @keyframes loading {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-primary);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--accent-primary);
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-secondary);
+      }
+      /* Nav hover underline */
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-primary);
+        transition: width 0.3s;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      /* Mobile menu */
+      .mobile-menu {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      /* mask */
+      .mask-custom {
+        -webkit-mask-image: url("./images/mask.svg");
+        mask-image: url("./images/mask.svg");
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-position: center;
+        mask-position: center;
+      }
+      /* Simple responsive helpers (kept minimal to preserve Tailwind use) */
+      section {
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      /* Scroll Animations */
+      .scroll-fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .scroll-fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scroll-slide-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .scroll-slide-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .scroll-slide-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .scroll-slide-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .scroll-scale {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .scroll-scale.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .scroll-rotate {
+        opacity: 0;
+        transform: rotate(5deg) scale(0.9);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .scroll-rotate.visible {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+      }
+
+      .stagger-animation > * {
+        opacity: 0;
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .stagger-animation.visible > * {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .stagger-animation.visible > *:nth-child(1) {
+        transition-delay: 0.1s;
+        transform: translateY(20px);
+      }
+      .stagger-animation.visible > *:nth-child(2) {
+        transition-delay: 0.2s;
+        transform: translateY(20px);
+      }
+      .stagger-animation.visible > *:nth-child(3) {
+        transition-delay: 0.3s;
+        transform: translateY(20px);
+      }
+      .stagger-animation.visible > *:nth-child(4) {
+        transition-delay: 0.4s;
+        transform: translateY(20px);
+      }
+      .stagger-animation.visible > *:nth-child(5) {
+        transition-delay: 0.5s;
+        transform: translateY(20px);
+      }
+      .stagger-animation.visible > *:nth-child(6) {
+        transition-delay: 0.6s;
+        transform: translateY(20px);
+      }
+      .stagger-animation.visible > *:nth-child(7) {
+        transition-delay: 0.6s;
+        transform: translateY(20px);
+      }
+      .stagger-animation.visible > *:nth-child(8) {
+        transition-delay: 0.6s;
+        transform: translateY(20px);
+      }
+      .stagger-animation.visible > *:nth-child(9) {
+        transition-delay: 0.6s;
+        transform: translateY(20px);
+      }
+
+      /* Project card hover effect */
+      .project-card {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      
+      .project-card > div:last-child {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+      
+      .project-card > div:last-child > p {
+        flex-grow: 1;
+      }
+      
+      .project-card > div:last-child > div:last-child {
+        margin-top: auto;
+      }
+
+      .project-card img {
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Skill item animation */
+      .skill-item {
+        transition: transform 0.3s ease;
+      }
+
+      .skill-item:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Contact item animation */
+      .contact-item {
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+
+      .contact-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .circle {
+        background: plum;
+       
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        overflow: hidden;
+        animation: morph 10s linear infinite;
+      }
+
+      .circle img {
+        width: 100%;
+      }
+
+      @keyframes morph {
+        0%,
+        100% {
+          border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+        }
+        34% {
+          border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+        }
+        67% {
+          border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        }
+      }
+
+      /* Utilities used inline in markup preserved in style for minify */
+    </style>
+  </head>
+
+  <body class="bg-[#0a0e27] text-[#e6e6e6] overflow-x-hidden">
+    <!-- Loading Screen -->
+    <div id="loader" aria-hidden="true">
+      <div class="text-center">
+        <div class="text-2xl text-[#64ffda] mb-4">Initializing...</div>
+        <div class="w-48 h-1 bg-[#1e2140] rounded overflow-hidden">
+          <div class="loader-progress h-full"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header
+      id="header"
+      class="fixed top-0 w-full bg-[rgba(10,14,39,0.9)] backdrop-blur-md z-40 transition-all duration-300"
+    >
+      <nav
+        class="flex justify-between items-center py-4 px-5 md:px-10 lg:px-20 max-w-7xl mx-auto"
+      >
+        <a
+          href="#"
+          class="text-2xl font-bold text-[#64ffda] no-underline relative overflow-hidden"
+          >&lt;/Lankv&gt;<span
+            class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#64ffda] transition-all duration-300"
+          ></span
+        ></a>
+        <!-- Desktop Navigation -->
+        <ul class="hidden md:flex list-none">
+          <li class="ml-8">
+            <a
+              href="#home"
+              class="nav-link text-[#e6e6e6] no-underline transition-colors duration-300 hover:text-[#64ffda]"
+              >Home</a
+            >
+          </li>
+          <li class="ml-8">
+            <a
+              href="#about"
+              class="nav-link text-[#e6e6e6] no-underline transition-colors duration-300 hover:text-[#64ffda]"
+              >About</a
+            >
+          </li>
+          <li class="ml-8">
+            <a
+              href="#projects"
+              class="nav-link text-[#e6e6e6] no-underline transition-colors duration-300 hover:text-[#64ffda]"
+              >Projects</a
+            >
+          </li>
+          <li class="ml-8">
+            <a
+              href="#skills"
+              class="nav-link text-[#e6e6e6] no-underline transition-colors duration-300 hover:text-[#64ffda]"
+              >Skills</a
+            >
+          </li>
+          <li class="ml-8">
+            <a
+              href="#contact"
+              class="nav-link text-[#e6e6e6] no-underline transition-colors duration-300 hover:text-[#64ffda]"
+              >Contact</a
+            >
+          </li>
+          <li class="ml-8">
+            <a
+              href="https://kieulanflutterknowledge.blogspot.com/"
+              target="_blank"
+              class="nav-link text-[#e6e6e6] no-underline transition-colors duration-300 hover:text-[#64ffda]"
+              >Blog</a
+            >
+          </li>
+        </ul>
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="menuToggle"
+          class="bg-transparent border-none text-[#e6e6e6] text-2xl cursor-pointer md:hidden"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div
+      id="mobileMenu"
+      class="mobile-menu fixed top-0 left-0 w-64 h-full bg-[#151932] z-50 md:hidden"
+      aria-hidden="true"
+    >
+      <div class="p-4">
+        <div class="flex justify-between items-center mb-8">
+          <a href="#" class="text-2xl font-bold text-[#64ffda] no-underline"
+            >&lt;/Lankv&gt;</a
+          >
+          <button
+            id="closeMenu"
+            class="bg-transparent border-none text-[#e6e6e6] text-2xl cursor-pointer"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <ul class="list-none">
+          <li class="mb-6">
+            <a
+              href="#home"
+              class="text-[#e6e6e6] no-underline text-lg transition-colors duration-300 hover:text-[#64ffda] block"
+              ><i class="fas fa-home mr-3"></i> Home</a
+            >
+          </li>
+          <li class="mb-6">
+            <a
+              href="#about"
+              class="text-[#e6e6e6] no-underline text-lg transition-colors duration-300 hover:text-[#64ffda] block"
+              ><i class="fas fa-user mr-3"></i> About</a
+            >
+          </li>
+          <li class="mb-6">
+            <a
+              href="#projects"
+              class="text-[#e6e6e6] no-underline text-lg transition-colors duration-300 hover:text-[#64ffda] block"
+              ><i class="fas fa-briefcase mr-3"></i> Projects</a
+            >
+          </li>
+          <li class="mb-6">
+            <a
+              href="#skills"
+              class="text-[#e6e6e6] no-underline text-lg transition-colors duration-300 hover:text-[#64ffda] block"
+              ><i class="fas fa-cogs mr-3"></i> Skills</a
+            >
+          </li>
+          <li class="mb-6">
+            <a
+              href="#contact"
+              class="text-[#e6e6e6] no-underline text-lg transition-colors duration-300 hover:text-[#64ffda] block"
+              ><i class="fas fa-envelope mr-3"></i> Contact</a
+            >
+          </li>
+          <li class="mb-6">
+            <a
+              href="https://kieulanflutterknowledge.blogspot.com/"
+              target="_blank"
+              class="text-[#e6e6e6] no-underline text-lg transition-colors duration-300 hover:text-[#64ffda] block"
+              ><i class="fas fa-blog mr-3"></i> Blog</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Overlay for mobile menu -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="h-screen flex items-center justify-center relative overflow-hidden"
+    >
+      <div
+        id="particles"
+        class="absolute top-0 left-0 w-full h-full overflow-hidden z-10"
+        aria-hidden="true"
+      ></div>
+      <div class="text-center z-20 max-w-4xl px-3">
+        
+        <h1
+          class="w-full text-5xl md:text-7xl mb-4 gradient-text font-bold md:font-medium tracking-tighter md:tracking-tight"
+        >
+          Kiều Văn Lân
+        </h1>
+        <div class="text-2xl md:text-3xl mb-8 text-[#7ee787]">
+          <span id="typingText"></span
+          ><span class="typing-cursor" aria-hidden="true"></span>
+        </div>
+        <div class="flex justify-center mt-8">
+          <a
+            href="files/lankv_flutter_resume.pdf"
+            target="_blank"
+            class="px-4 md:px-6 py-2 md:py-3 border-2 border-[#64ffda] bg-transparent text-[#64ffda] no-underline rounded text-base md:text-lg transition-all duration-300 hover:bg-[#64ffda] hover:text-[#0a0e27]"
+            >View Resume</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-10 px-5 md:px-10 lg:px-20 max-w-7xl mx-auto">
+      <h2
+        class="text-4xl mb-8 relative inline-block after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-12 after:h-0.5 after:bg-[#64ffda] scroll-fade-in"
+      >
+        About Me
+      </h2>
+
+      <!-- <div class="w-full flex justify-center items-center">
+          <div class="circle w-60 h-60">
+            <img src="images/lankv.jpg" alt="" />
+          </div>
+        </div> -->
+
+      <div class="flex flex-col w-full items-center justify-center scroll-scale">
+        <a href="images/lankv.jpg" target="_blank">
+          <div class="relative w-96 p-5  ">
+            <img
+              src="images/lankv.jpg"
+              alt="Kiều Văn Lân"
+              class="w-full h-auto object-cover circle"
+            />
+          </div>
+        </a>
+        <div class="text-center space-y-2 md:space-y-3 my-3 ">
+          <h3 class="text-3xl text-[#64ffda]">Kiều Văn Lân</h3>
+          <p class="text-xl text-[#79c0ff]">
+            Flutter Developer
+          </p>
+          <p class="text-lg text-[#a0a0a0]">
+            <i class="fa-solid fa-birthday-cake"></i> 19/12/1999
+          </p>
+          <p class="text-lg text-[#a0a0a0]">
+            <i class="fa-solid fa-phone"></i> 0349845881
+          </p>
+          <p class="text-lg text-[#a0a0a0]">
+            <i class="fa-solid fa-envelope"></i> kieuvanlan.1912@gmail.com
+          </p>
+          <p class="text-xl text-[#f06292]">
+            <i class="fa-solid fa-location-dot"></i> Phường Từ Liêm, Hà Nội
+          </p>
+        </div>
+      </div>
+      <p class="scroll-fade-in mt-5">
+        Là một nhà phát triển Flutter giàu kinh nghiệm với hơn 4 năm kinh nghiệm, thành thạo Flutter, chuyên xây dựng các ứng dụng di động trực quan, hiệu suất cao cho cả môi trường đa nền tảng (cross-platform) và native. Có kỹ năng tạo và tích hợp các framework tùy chỉnh, cũng như triển khai Flutter Add-to-App để nhúng các module Flutter vào các ứng dụng Android/iOS gốc, tạo ra các giải pháp hybrid liền mạch. Có thành tích xuất sắc trong việc cung cấp các giải pháp trên nhiều lĩnh vực như chat, tin tức, đặt hàng, eKYC, NFC, IoT, HRM, fintech (ví điện tử, thanh toán) và e-logistics. Thành thạo trong việc thiết kế các kiến trúc có khả năng mở rộng, tối ưu hóa hiệu suất và tích hợp các công nghệ tiên tiến. Tôi đang tìm kiếm một môi trường năng động, đổi mới, nơi tôi có thể tận dụng các kỹ năng kỹ thuật, sự sáng tạo và kinh nghiệm đa nền tảng của mình để thúc đẩy các sản phẩm có tác động và đóng góp vào thành công của tổ chức.
+      </p>
+      <div class="scroll-fade-in">
+        <h4 class="mt-8 font-semibold text-xl text-white">
+          Skills & Expertise:
+        </h4>
+        <div class="emoji-list text-base stagger-animation">
+          <p class="leading-relaxed mb-4 block">✅ <strong>Programming Languages:</strong> Dart, Java (basic), Kotlin (basic), Swift (basic)</p>
+          <p class="leading-relaxed mb-4 block">✅ <strong>Flutter Development:</strong> Dart, OOP, Add-to-App integration, GetX, Bloc (state management), Pigeon (platform channels), GoRouter (navigation), PlatformView (native UI embedding)</p>
+          <p class="leading-relaxed mb-4 block">✅ <strong>Design Patterns & Architecture:</strong> MVC, MVVM, Clean Architecture, Dependency Injection</p>
+          <p class="leading-relaxed mb-4 block">✅ <strong>Databases:</strong> SQLite, Hive, Firebase, Hydrated Bloc, JSON, XML</p>
+          <p class="leading-relaxed mb-4 block">✅ <strong>Networking:</strong> RESTful APIs, DIO, HTTP, WebSockets, URLSession</p>
+          <p class="leading-relaxed mb-4 block">✅ <strong>UI/UX:</strong> Animation, Custom widget, Responsive UI, Adaptive layout, UX flow</p>
+          <p class="leading-relaxed mb-4 block">✅ <strong>Testing:</strong> Unit Test, Mockito, Mock API, Test Business Logic (BLoC, ViewModel)</p>
+          <p class="leading-relaxed mb-4 block">✅ <strong>Computer Vision:</strong> Google's ML Kit</p>
+          <p class="leading-relaxed mb-4 block">✅ <strong>SDK Integration:</strong> Google SDK, Facebook SDK, Zalo SDK, Payment SDKs</p>
+          <p class="leading-relaxed mb-4 mt-8 block">✅ <strong>Tools & Dependency Management:</strong> Flutter pub, Build runner, Code generation, FVM</p>
+          <p class="leading-relaxed mb-4 block">✅ <strong>CI/CD & IDE:</strong> Git/GitLab, Fastlane CI/CD, Android Studio, Xcode, VSCode, Postman</p>
+          <p class="leading-relaxed mb-4 block">✅ <strong>Project Management:</strong> Agile/Scrum, Jira</p>
+        </div>
+      </div>
+
+      <div class="mt-16">
+        <h3
+          class="scroll-fade-in text-2xl mb-10 relative inline-block after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-12 after:h-0.5 after:bg-[#64ffda]"
+        >
+          Work Experience
+        </h3>
+
+        <div
+          class="relative border-l border-[#64ffda]/40 pl-8 space-y-12 scroll-fade-in"
+        >
+          <!-- Item 1 -->
+          <div class="relative">
+            <span
+              class="scroll-fade-in absolute -left-[41px] top-2 w-4 h-4 bg-[#64ffda] rounded-full"
+            ></span>
+            <div class="ml-2 scroll-fade-in">
+              <p class="text-xl font-medium text-[#64ffda]">
+                Công ty Cổ phần Giao Hàng Tiết Kiệm (GHTK JSC)
+              </p>
+              <p class="text-base text-gray-300">
+                Mobile Developer - Flutter
+              </p>
+              <p class="text-sm text-gray-400">02/2024 – Hiện tại</p>
+              <ul class="mt-3 space-y-2 text-sm text-gray-300 list-disc ml-5">
+                <li>Làm việc với các team dự án, Designer và Product owner để phát triển các tính năng mới phù hợp với lộ trình sản phẩm</li>
+                <li>Nghiên cứu, thiết kế, phát triển, quản lý, tạo và duy trì các component và templates. Phát triển các thư viện dùng chung cho các dự án như Chats, News, Mail, Authenticator, Wallet, Package, eKYC, Face Detection, Object Detection</li>
+                <li>Phát triển và tích hợp các module Flutter vào các ứng dụng iOS/Android gốc (Flutter Add-to-App) để cung cấp tính năng kết hợp</li>
+                <li>Tối ưu hóa hiệu suất ứng dụng và đảm bảo tính ổn định. Nghiên cứu và áp dụng các công nghệ mới và tiên tiến vào dự án</li>
+                <li>Maintain mở rộng/cải thiện liên tục bằng cách thêm chức năng mới và giải quyết các vấn đề hiện có</li>
+                <li>Cung cấp hướng dẫn kỹ thuật cho các đồng nghiệp mới và review source code của các thành viên khác</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="relative">
+            <span
+              class="scroll-fade-in absolute -left-[42px] top-2 w-4 h-4 bg-[#64ffda] rounded-full"
+            ></span>
+            <div class="ml-2 scroll-fade-in">
+              <p class="text-xl font-medium text-[#64ffda]">
+                Công ty TNHH Tư vấn & Phát triển Công nghệ Bách Khoa Hà Nội
+              </p>
+              <p class="text-base text-gray-300">
+                FE Angular | Flutter Developer
+              </p>
+              <p class="text-sm text-gray-400">03/2021 – 01/2024 (3 Năm)</p>
+              <ul class="mt-3 space-y-2 text-sm text-gray-300 list-disc ml-5">
+                <li>Có gần 1 năm kinh nghiệm với lập trình web Frontend Angular (HTML5/CSS3, TypeScript), tham gia 3 dự án ERP của công ty</li>
+                <li>Phát triển các app nội bộ, và các app cho chính phủ, hỗ trợ publish release app lên store</li>
+                <li>Làm việc với RESTful API, Firebase, Google Map API, tích hợp SDK bên thứ 3 và xử lý logic phức tạp</li>
+                <li>Tham gia review code, tối ưu hiệu năng, fix bug và đảm nhiệm vai trò hướng dẫn thực tập sinh, fresher và training nội bộ mobile team</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16">
+        <h3
+          class="scroll-fade-in text-2xl mb-10 relative inline-block after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-12 after:h-0.5 after:bg-[#64ffda]"
+        >
+          Education
+        </h3>
+
+        <div class="relative border-l border-[#64ffda]/40 pl-8 space-y-12 scroll-fade-in">
+          <div class="relative">
+            <span
+              class="scroll-fade-in absolute -left-[41px] top-2 w-4 h-4 bg-[#64ffda] rounded-full"
+            ></span>
+            <div class="ml-2 scroll-fade-in">
+              <p class="text-xl font-medium text-[#64ffda]">
+                Đại học Kinh Tế - Kỹ Thuật – Công Nghiệp (Uneti)
+              </p>
+              <p class="text-base text-gray-300">
+                Công nghệ thông tin
+              </p>
+              <p class="text-sm text-gray-400">2017 – 2021</p>
+              <p class="text-sm text-gray-300 mt-2">GPA: 3.0/4.0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section
+      id="projects"
+      class="py-10 px-5 md:px-10 lg:px-20 max-w-7xl mx-auto"
+    >
+      <h2
+        class="text-4xl mb-8 relative inline-block after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-12 after:h-0.5 after:bg-[#64ffda] scroll-fade-in"
+      >
+        Projects
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+        <!-- Moshop Project -->
+        <div
+          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale flex flex-col h-full"
+        >
+          <div class="h-60 overflow-hidden bg-gradient-to-br from-[#64ffda] to-[#79c0ff] flex items-center justify-center">
+            <div class="text-center p-6">
+              <i class="fas fa-shipping-fast text-6xl text-[#0a0e27] mb-3"></i>
+              <h4 class="text-2xl font-bold text-[#0a0e27]">Moshop</h4>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl mb-2 text-[#64ffda]">Moshop</h3>
+            <p class="text-[#a0a0a0] flex-grow">
+              Ứng dụng vận chuyển giúp bạn vận hành và quản lý tất cả công việc của cửa hàng hoàn toàn miễn phí trên một nền tảng duy nhất. Tích hợp nhúng toàn bộ app Apollo.
+            </p>
+            <div class="flex flex-wrap gap-3 my-5">
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Add-to-App</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Bloc</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">GoRouter</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-auto">
+              <a href="https://apps.apple.com/vn/app/id1479502357" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/app-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.ghtk.xproject&hl=vi" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/play-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Apollo Project -->
+        <div
+          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale flex flex-col h-full"
+        >
+          <div class="h-60 overflow-hidden bg-gradient-to-br from-[#f06292] to-[#79c0ff] flex items-center justify-center">
+            <div class="text-center p-6">
+              <i class="fas fa-robot text-6xl text-white mb-3"></i>
+              <h4 class="text-2xl font-bold text-white">Apollo</h4>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl mb-2 text-[#64ffda]">Apollo – AI & Data Platform</h3>
+            <p class="text-[#a0a0a0] flex-grow">
+              Nền tảng AI và dữ liệu để tự động hóa quy trình kinh doanh, tối ưu hóa tương tác với khách hàng.
+            </p>
+            <div class="flex flex-wrap gap-3 my-5">
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Add-to-App</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">AI</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">PlatformView</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-auto">
+              <a href="https://apps.apple.com/vn/app/apollo/id6740890777" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/app-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=vn.gam.apollo" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/play-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- GHTK.Co App Project -->
+        <div
+          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale flex flex-col h-full"
+        >
+          <div class="h-60 overflow-hidden bg-gradient-to-br from-[#7ee787] to-[#64ffda] flex items-center justify-center">
+            <div class="text-center p-6">
+              <i class="fas fa-building text-6xl text-[#0a0e27] mb-3"></i>
+              <h4 class="text-2xl font-bold text-[#0a0e27]">GHTK.Co</h4>
+            </div>
+          </div>
+          
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl mb-2 text-[#64ffda]">GHTK.Co App (Internal)</h3>
+            <p class="text-[#a0a0a0] flex-grow">
+              Ứng dụng nội bộ dùng để chấm công, trao đổi thông tin qua chat, gọi điện, email, tin tức, ví điện tử. Hỗ trợ sự kiện nội bộ, theo dõi đơn hàng, quản lý tài sản.
+            </p>
+            <div class="flex flex-wrap gap-3 my-5">
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Add-to-App</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Bloc</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Chat</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Wallet</span>
+            </div>
+            <div class="grid grid-cols-1 gap-4 pt-1">
+              <a
+                href="https://app.ghtk.vn/"
+                target="_blank"
+                class="text-[#64ffda] w-full no-underline flex items-center gap-2 transition-colors duration-300 hover:text-[#f06292]"
+              >
+                <button
+                  class="w-full border border-gray-400 flex justify-center gap-3 p-2.5 items-center bg-black/35 text-white px-5 rounded-lg shadow-md transition-transform duration-300 hover:scale-110"
+                >
+                  <i class="fas fa-external-link-alt text-sm"></i
+                  ><span class="font-semibold uppercase tracking-wide text-sm"
+                    >Visit Site</span
+                  >
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ninh Binh Tourism Project -->
+        <div
+          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale flex flex-col h-full"
+        >
+          <div class="h-60 overflow-hidden bg-gradient-to-br from-[#f06292] to-[#64ffda] flex items-center justify-center">
+            <div class="text-center p-6">
+              <i class="fas fa-mountain text-6xl text-white mb-3"></i>
+              <h4 class="text-2xl font-bold text-white">Ninh Bình</h4>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl mb-2 text-[#64ffda]">Ninh Bình TourismInfo</h3>
+            <p class="text-[#a0a0a0]">
+              Ứng dụng du lịch tỉnh Ninh Bình, tích hợp chatbot và bản đồ, tìm kiếm thông tin và đặt phòng khách sạn, homestay.
+            </p>
+            <div class="flex flex-wrap gap-3 my-5">
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Firebase</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">REST API</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">WebView</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">GetX</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 p-1 pt-1">
+              <a href="https://apps.apple.com/us/app/ninhbinhtourisminfo/id6502688848" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/app-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.bkholding.tourism&hl=vi" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/play-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tuyen Quang ID Project -->
+        <div
+          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale"
+        >
+          <div class="h-60 overflow-hidden bg-gradient-to-br from-[#79c0ff] to-[#7ee787] flex items-center justify-center">
+            <div class="text-center p-6">
+              <i class="fas fa-id-card text-6xl text-[#0a0e27] mb-3"></i>
+              <h4 class="text-2xl font-bold text-[#0a0e27]">Tuyên Quang ID</h4>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl mb-2 text-[#64ffda]">Tuyên Quang ID</h3>
+            <p class="text-[#a0a0a0]">
+              Ứng dụng phản ánh hiện trường, tích hợp VNeID, gửi báo cáo kèm hình ảnh/video đến trung tâm điều hành.
+            </p>
+            <div class="flex flex-wrap gap-3 my-5">
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">VNeID SSO</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Firebase</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">GPS</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">GetX</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 p-1 pt-1">
+              <a href="https://apps.apple.com/pt/app/tuy%C3%AAn-quang-id/id6443710931" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/app-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=gov.tuyenquang.master_app&hl=vi" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/play-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TXNG Smart Trace Project -->
+        <div
+          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale"
+        >
+          <div class="h-60 overflow-hidden bg-gradient-to-br from-[#64ffda] to-[#f06292] flex items-center justify-center">
+            <div class="text-center p-6">
+              <i class="fas fa-qrcode text-6xl text-white mb-3"></i>
+              <h4 class="text-2xl font-bold text-white">Smart Trace</h4>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl mb-2 text-[#64ffda]">TXNG Smart Trace</h3>
+            <p class="text-[#a0a0a0]">
+              Ứng dụng hỗ trợ ghi nhận và theo dõi toàn bộ quá trình sản xuất sản phẩm theo từng công đoạn, đảm bảo tính minh bạch và dễ dàng truy xuất.
+            </p>
+            <div class="flex flex-wrap gap-3 my-5">
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Mobile Scanner</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">GetX</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">QR Code</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 p-1 pt-1">
+              <a href="https://apps.apple.com/us/app/txng-smart-trace/id6742737433" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/app-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=bkholding.smart.trace" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/play-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BK Apps Project -->
+        <div
+          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale"
+        >
+          <div class="h-60 overflow-hidden bg-gradient-to-br from-[#7ee787] to-[#79c0ff] flex items-center justify-center">
+            <div class="text-center p-6">
+              <i class="fas fa-mobile-alt text-6xl text-[#0a0e27] mb-3"></i>
+              <h4 class="text-2xl font-bold text-[#0a0e27]">BK Apps</h4>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl mb-2 text-[#64ffda]">BK Apps (Internal)</h3>
+            <p class="text-[#a0a0a0]">
+              Ứng dụng BeKa App cung cấp chức năng hỗ trợ về xác thực OTP, call video, chatbot. Tích hợp SSO của công ty.
+            </p>
+            <div class="flex flex-wrap gap-3 my-5">
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">WebView</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Firebase</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Jitsi Meet</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">GetX</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 p-1 pt-1">
+              <a href="https://apps.apple.com/us/app/b%C3%A1ch-khoa-apps/id6739036642" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/app-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.bkholding.bekaapp&hl=vi" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/play-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SShipping Minh Duong Project -->
+        <div
+          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale"
+        >
+          <div class="h-60 overflow-hidden bg-gradient-to-br from-[#f06292] to-[#79c0ff] flex items-center justify-center">
+            <div class="text-center p-6">
+              <i class="fas fa-truck text-6xl text-white mb-3"></i>
+              <h4 class="text-2xl font-bold text-white">SShipping</h4>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl mb-2 text-[#64ffda]">SShipping Minh Duong</h3>
+            <p class="text-[#a0a0a0]">
+              Ứng dụng S-Shipping hỗ trợ tài xế cập nhật trạng thái tuyến giao trong quá trình điều vận đơn hàng. Hỗ trợ quản lý theo dõi tình trạng đơn hàng.
+            </p>
+            <div class="flex flex-wrap gap-3 my-5">
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">REST API</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Bloc</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">MVVM</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 p-1 pt-1">
+              <a href="https://apps.apple.com/us/app/sshipping-minh-duong/id1672359676" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/app-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.bkholding.sshipping&hl=vi" target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2">
+                <img src="images/play-store.png" class="transition-transform duration-300 hover:scale-110" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Work Project -->
+        <div
+          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale"
+        >
+          <div class="h-60 overflow-hidden bg-gradient-to-br from-[#79c0ff] to-[#64ffda] flex items-center justify-center">
+            <div class="text-center p-6">
+              <i class="fas fa-tasks text-6xl text-[#0a0e27] mb-3"></i>
+              <h4 class="text-2xl font-bold text-[#0a0e27]">Smart Work</h4>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl mb-2 text-[#64ffda]">Smart Work – Core Base</h3>
+            <p class="text-[#a0a0a0]">
+              Ứng dụng quản lý task và timeline, đồng thời làm core base để mở rộng sang các dự án nội bộ khác. Xây dựng giao diện + toàn bộ chức năng quản lý task.
+            </p>
+            <div class="flex flex-wrap gap-3 my-5">
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">REST API</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">GetX</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">MVVM</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Task Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="open_source_projects"
+      class="py-10 px-5 md:px-10 lg:px-20 max-w-7xl mx-auto"
+    >
+      <h2
+        class="text-4xl mb-12 relative inline-block after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-12 after:h-0.5 after:bg-[#64ffda] scroll-fade-in"
+      >
+        Open Source Projects
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Integrate Flutter into Native -->
+        <div
+          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale"
+        >
+          <div class="h-60 overflow-hidden bg-gradient-to-br from-[#64ffda] to-[#79c0ff] flex items-center justify-center">
+            <div class="text-center p-6">
+              <i class="fab fa-flutter text-6xl text-[#0a0e27] mb-3"></i>
+              <h4 class="text-2xl font-bold text-[#0a0e27]">Add-to-App</h4>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl mb-2 text-[#64ffda]">Integrate Flutter into Native</h3>
+            <p class="text-[#a0a0a0]">
+              Demo project showing how to integrate Flutter modules into existing native Android and iOS applications using Add-to-App approach.
+            </p>
+            <div class="flex flex-wrap gap-3 my-5">
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Add-to-App</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Android</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">iOS</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Native Integration</span>
+            </div>
+            <a
+              href="https://github.com/kieulan1912/integrate-flutter-into-native"
+              target="_blank"
+              class="text-[#64ffda] no-underline flex items-center gap-2 justify-center pt-2"
+            >
+              <img src="images/github.png" class="w-full h-12 object-contain transition-transform duration-300 hover:scale-110" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Beka Bot AI -->
+        <div
+          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale"
+        >
+          <div class="h-60 overflow-hidden bg-gradient-to-br from-[#f06292] to-[#79c0ff] flex items-center justify-center">
+            <div class="text-center p-6">
+              <i class="fas fa-robot text-6xl text-white mb-3"></i>
+              <h4 class="text-2xl font-bold text-white">Beka Bot AI</h4>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl mb-2 text-[#64ffda]">Beka Bot AI</h3>
+            <p class="text-[#a0a0a0]">
+              AI-powered chatbot application built with Flutter, featuring intelligent conversation capabilities and modern UI design.
+            </p>
+            <div class="flex flex-wrap gap-3 my-5">
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">AI</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Chatbot</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">NLP</span>
+              <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Machine Learning</span>
+            </div>
+            <a
+              href="https://github.com/kieulan1912/beka-bot-ai"
+              target="_blank"
+              class="text-[#64ffda] no-underline flex items-center gap-2 justify-center pt-2"
+            >
+              <img src="images/github.png" class="w-full h-12 object-contain transition-transform duration-300 hover:scale-110" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center space-y-2 scroll-fade-in">
+        <p class="text-center pt-10 text-lg font-medium">
+          Explore more open-source projects on
+        </p>
+        <a
+          href="https://github.com/kieulan1912/"
+          class="text-[#64ffda] text-xl inline-block text-center transform transition-transform duration-200 hover:scale-110"
+          target="_blank"
+          ><i class="fab fa-github mr-2"></i>GitHub</a
+        >
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-10 px-5 md:px-10 lg:px-20 max-w-7xl mx-auto">
+      <h2
+        class="text-4xl mb-8 relative inline-block after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-12 after:h-0.5 after:bg-[#64ffda] scroll-fade-in"
+      >
+        Skills
+      </h2>
+      <div class="space-y-6">
+        <!-- Programming Languages -->
+        <div class="bg-[#151932] rounded-lg p-6 scroll-scale">
+          <h3 class="text-xl mb-3 text-[#64ffda] font-semibold">Programming Languages</h3>
+          <p class="text-[#a0a0a0] leading-relaxed">Dart, Java (basic), Kotlin (basic), Swift (basic)</p>
+        </div>
+
+        <!-- Flutter Development -->
+        <div class="bg-[#151932] rounded-lg p-6 scroll-scale">
+          <h3 class="text-xl mb-3 text-[#64ffda] font-semibold">Flutter Development</h3>
+          <p class="text-[#a0a0a0] leading-relaxed">Dart, OOP, Add-to-App integration, GetX, Bloc (state management), Pigeon (platform channels), GoRouter (navigation), PlatformView (native UI embedding)</p>
+        </div>
+
+        <!-- Design Patterns & Architecture -->
+        <div class="bg-[#151932] rounded-lg p-6 scroll-scale">
+          <h3 class="text-xl mb-3 text-[#64ffda] font-semibold">Design Patterns & Architecture</h3>
+          <p class="text-[#a0a0a0] leading-relaxed">MVC, MVVM, Clean Architecture, Dependency Injection</p>
+        </div>
+
+        <!-- Databases -->
+        <div class="bg-[#151932] rounded-lg p-6 scroll-scale">
+          <h3 class="text-xl mb-3 text-[#64ffda] font-semibold">Databases</h3>
+          <p class="text-[#a0a0a0] leading-relaxed">SQLite, Hive, Firebase, Hydrated Bloc, JSON, XML</p>
+        </div>
+
+        <!-- Networking -->
+        <div class="bg-[#151932] rounded-lg p-6 scroll-scale">
+          <h3 class="text-xl mb-3 text-[#64ffda] font-semibold">Networking</h3>
+          <p class="text-[#a0a0a0] leading-relaxed">RESTful APIs, DIO, HTTP, WebSockets, URLSession</p>
+        </div>
+
+        <!-- UI/UX -->
+        <div class="bg-[#151932] rounded-lg p-6 scroll-scale">
+          <h3 class="text-xl mb-3 text-[#64ffda] font-semibold">UI/UX</h3>
+          <p class="text-[#a0a0a0] leading-relaxed">Animation, Custom widget, Responsive UI, adaptive layout, UX flow</p>
+        </div>
+
+        <!-- Testing -->
+        <div class="bg-[#151932] rounded-lg p-6 scroll-scale">
+          <h3 class="text-xl mb-3 text-[#64ffda] font-semibold">Testing</h3>
+          <p class="text-[#a0a0a0] leading-relaxed">Unit Test, mockito, mock API, test Business Logic (BLoC, ViewModel)</p>
+        </div>
+
+        <!-- Computer Vision -->
+        <div class="bg-[#151932] rounded-lg p-6 scroll-scale">
+          <h3 class="text-xl mb-3 text-[#64ffda] font-semibold">Computer Vision</h3>
+          <p class="text-[#a0a0a0] leading-relaxed">Google's ML Kit</p>
+        </div>
+
+        <!-- SDK Integration -->
+        <div class="bg-[#151932] rounded-lg p-6 scroll-scale">
+          <h3 class="text-xl mb-3 text-[#64ffda] font-semibold">SDK Integration</h3>
+          <p class="text-[#a0a0a0] leading-relaxed">Google SDK, Facebook SDK, Zalo SDK, Payment SDKs</p>
+        </div>
+
+        <!-- Tools & Dependency Management -->
+        <div class="bg-[#151932] rounded-lg p-6 scroll-scale">
+          <h3 class="text-xl mb-3 text-[#64ffda] font-semibold">Tools & Dependency Management</h3>
+          <p class="text-[#a0a0a0] leading-relaxed">Flutter pub, build runner, code generation, FVM, Git/GitLab, Fastlane CI/CD, Android Studio, Xcode, VSCode, Postman</p>
+        </div>
+
+        <!-- Project Management -->
+        <div class="bg-[#151932] rounded-lg p-6 scroll-scale">
+          <h3 class="text-xl mb-3 text-[#64ffda] font-semibold">Project Management</h3>
+          <p class="text-[#a0a0a0] leading-relaxed">Agile/Scrum, Jira</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="py-10 px-5 md:px-10 lg:px-20 max-w-7xl mx-auto"
+    >
+      <h2
+        class="text-4xl relative inline-block after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-12 after:h-0.5 after:bg-[#64ffda] scroll-fade-in"
+      >
+        Contact
+      </h2>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 overflow-hidden scroll-fade-in"
+      >
+        <!-- Call -->
+        <a
+          href="tel:+84349845881"
+          class="bg-[#151932] rounded-lg p-6 flex items-center gap-4 transition-transform duration-300 hover:-translate-y-1.5 hover:bg-[#1e2140] group contact-item"
+        >
+          <div
+            class="w-12 h-12 bg-[#1e2140] rounded-full flex items-center justify-center text-[#64ffda] text-xl group-hover:bg-[#64ffda] group-hover:text-[#151932] transition-colors duration-300"
+          >
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="w-4/5">
+            <h4 class="text-[#64ffda] mb-1">Call</h4>
+            <p class="text-[#a0a0a0] group-hover:text-[#64ffda]">
+              0349845881
+            </p>
+          </div>
+        </a>
+        <!-- Email -->
+        <a
+          href="mailto:kieuvanlan.1912@gmail.com"
+          class="bg-[#151932] rounded-lg p-6 flex items-center gap-4 transition-transform duration-300 hover:-translate-y-1.5 hover:bg-[#1e2140] group contact-item"
+        >
+          <div
+            class="w-12 h-12 bg-[#1e2140] rounded-full flex items-center justify-center text-[#64ffda] text-xl group-hover:bg-[#64ffda] group-hover:text-[#151932] transition-colors duration-300"
+          >
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="w-4/5">
+            <h4 class="text-[#64ffda] mb-1">Email</h4>
+            <p class="text-[#a0a0a0] group-hover:text-[#64ffda]">
+              kieuvanlan.1912@gmail.com
+            </p>
+          </div>
+        </a>
+        <!-- Blog -->
+        <a
+          href="https://kieulanflutterknowledge.blogspot.com/"
+          target="_blank"
+          class="bg-[#151932] rounded-lg p-6 flex items-center gap-4 transition-transform duration-300 hover:-translate-y-1.5 hover:bg-[#1e2140] group contact-item"
+        >
+          <div
+            class="w-12 h-12 bg-[#1e2140] rounded-full flex items-center justify-center text-[#64ffda] text-xl group-hover:bg-[#64ffda] group-hover:text-[#151932] transition-colors duration-300"
+          >
+            <i class="fas fa-blog"></i>
+          </div>
+          <div class="w-4/5">
+            <h4 class="text-[#64ffda] mb-1">Blog</h4>
+            <p class="text-[#a0a0a0] group-hover:text-[#64ffda]">
+              Flutter Knowledge
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#151932] py-8 px-5 md:px-10 lg:px-20 text-center">
+      <div class="flex justify-center gap-4 mb-4 fa-lg">
+        <a
+          href="https://github.com/lankv"
+          class="w-12 h-12 bg-[#1e2140] rounded-full flex items-center justify-center text-[#e6e6e6] no-underline transition-all duration-300 hover:bg-[#64ffda] hover:text-[#0a0e27] hover:-translate-y-1.5"
+          target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
+      <p>&copy; 2025 Kiều Văn Lân. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a
+      href="#home"
+      id="scrollTop"
+      class="fixed bottom-5 right-5 w-12 h-12 bg-[#64ffda] rounded-full flex items-center justify-center text-[#0a0e27] no-underline opacity-0 invisible transition-all duration-300 z-30 hover:bg-[#f06292] hover:-translate-y-1.5"
+      ><i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCyiPDRQRu8rJMqlpJvLBxHn7Ie78SBX8k",
+        authDomain: "lankv-portfolio.firebaseapp.com",
+        projectId: "lankv-portfolio",
+        storageBucket: "lankv-portfolio.firebasestorage.app",
+        messagingSenderId: "202871303333",
+        appId: "1:202871303333:web:3a547e2e7665a50fc0714c",
+        measurementId: "G-JP2HWSWXXJ",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+
+    <script>
+      /* ===== Pure JS Scroll Animations + UI behaviors (self-contained) ===== */
+
+      /* ---- Inject required CSS (no external edits needed) ---- */
+      (function injectAnimationCSS() {
+        const css = `
+    /* Scroll animation CSS injected by script */
+    .scroll-fade{opacity:0;transform:translateY(40px);transition:transform 0.9s cubic-bezier(.2,.8,.2,1),opacity 0.9s cubic-bezier(.2,.8,.2,1);will-change:opacity,transform}
+    .scroll-visible{opacity:1;transform:translateY(0)}
+    .project-animate{opacity:0;transform:scale(0.97) translateY(30px);transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity 1s cubic-bezier(.2,.8,.2,1);will-change:opacity,transform}
+    .project-visible{opacity:1;transform:scale(1) translateY(0)}
+    /* Optional: smoother scroll for anchors */
+    html{scroll-behavior:smooth}
+  `;
+        const s = document.createElement("style");
+        s.setAttribute("data-generated-by", "pure-js-anim");
+        s.appendChild(document.createTextNode(css));
+        document.head.appendChild(s);
+      })();
+
+      /* ---- Helpers ---- */
+      const $ = (s) => document.querySelector(s);
+      const $$ = (s) => Array.from(document.querySelectorAll(s));
+
+      /* ---- Cache DOM ---- */
+      const loader = $("#loader"),
+        cursor = document.querySelector(".cursor"),
+        follower = document.querySelector(".cursor-follower"),
+        menuToggle = $("#menuToggle"),
+        mobileMenu = $("#mobileMenu"),
+        closeMenuBtn = $("#closeMenu"),
+        overlay = $("#overlay"),
+        scrollTopBtn = $("#scrollTop"),
+        header = $("#header"),
+        typingText = $("#typingText"),
+        particlesWrap = $("#particles");
+
+      /* ===== Loader (bulletproof) ===== */
+      function hideLoader() {
+        if (!loader) return;
+        loader.style.transition = "opacity 0.5s ease";
+        loader.style.opacity = "0";
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 650);
+      }
+      if (document.readyState === "complete") hideLoader();
+      else window.addEventListener("load", hideLoader);
+      setTimeout(hideLoader, 3500); // safety fallback
+
+      /* ===== Custom Cursor ===== */
+      if (cursor && follower) {
+        document.addEventListener("mousemove", (e) => {
+          cursor.style.left = e.clientX + "px";
+          cursor.style.top = e.clientY + "px";
+          // follower slightly delayed for smooth trailing
+          requestAnimationFrame(() => {
+            follower.style.left = e.clientX + "px";
+            follower.style.top = e.clientY + "px";
+          });
+        });
+        ["mousedown", "mouseup"].forEach((evt) =>
+          document.addEventListener(evt, (e) => {
+            const scale = evt === "mousedown" ? "scale(0.85)" : "scale(1)";
+            cursor.style.transform = `translate(-50%,-50%) ${scale}`;
+            follower.style.transform = `translate(-50%,-50%) ${scale}`;
+          })
+        );
+      }
+
+      /* ===== Mobile Menu ===== */
+      function openMenu() {
+        if (mobileMenu) {
+          mobileMenu.classList.add("active");
+          overlay && overlay.classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+        }
+      }
+      function closeMenu() {
+        if (mobileMenu) {
+          mobileMenu.classList.remove("active");
+          overlay && overlay.classList.add("hidden");
+          document.body.style.overflow = "auto";
+        }
+      }
+      menuToggle?.addEventListener("click", openMenu);
+      closeMenuBtn?.addEventListener("click", closeMenu);
+      overlay?.addEventListener("click", closeMenu);
+      $$("#mobileMenu a").forEach((a) =>
+        a.addEventListener("click", closeMenu)
+      );
+
+      /* ===== Typing effect (unchanged behavior) ===== */
+      if (typingText) {
+        const texts = [
+          "Mobile App Developer",
+          "Flutter Developer",
+          "Frontend Developer",
+          "NextJS Developer",
+          "N8N Automation",
+          "IoT App Developer",
+        ];
+        let ti = 0,
+          ci = 0,
+          isDeleting = false;
+        (function typeLoop() {
+          const cur = texts[ti];
+          typingText.textContent = isDeleting
+            ? cur.substring(0, --ci)
+            : cur.substring(0, ++ci);
+          if (!isDeleting && ci === cur.length) {
+            isDeleting = true;
+            setTimeout(typeLoop, 2000);
+          } else if (isDeleting && ci === 0) {
+            isDeleting = false;
+            ti = (ti + 1) % texts.length;
+            setTimeout(typeLoop, 500);
+          } else setTimeout(typeLoop, isDeleting ? 50 : 100);
+        })();
+      }
+
+      /* ===== Particles (generate once) ===== */
+      (function genParticles() {
+        if (!particlesWrap) return;
+        const count = 50;
+        for (let i = 0; i < count; i++) {
+          const p = document.createElement("div");
+          p.className = "particle";
+          const size = Math.random() * 5 + 1;
+          Object.assign(p.style, {
+            width: `${size}px`,
+            height: `${size}px`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 10}s`,
+            position: "absolute",
+            background:
+              getComputedStyle(document.documentElement).getPropertyValue(
+                "--accent-primary"
+              ) || "#64ffda",
+            borderRadius: "50%",
+            opacity: "0.25",
+            pointerEvents: "none",
+          });
+          particlesWrap.appendChild(p);
+        }
+      })();
+
+      /* ===== Header shrink + scrollTop visibility ===== */
+      window.addEventListener("scroll", () => {
+        if (!header) return;
+        if (window.scrollY > 100) {
+          header.style.padding = "0.5rem 5%";
+          header.style.backgroundColor = "rgba(10,14,39,0.95)";
+        } else {
+          header.style.padding = "1rem 5%";
+          header.style.backgroundColor = "rgba(10,14,39,0.9)";
+        }
+        if (scrollTopBtn) {
+          if (window.scrollY > 400) {
+            scrollTopBtn.classList.add("opacity-100", "visible");
+            scrollTopBtn.classList.remove("opacity-0", "invisible");
+          } else {
+            scrollTopBtn.classList.remove("opacity-100", "visible");
+            scrollTopBtn.classList.add("opacity-0", "invisible");
+          }
+        }
+      });
+
+      /* ===== Smooth anchor scroll (keeps offset for header) ===== */
+      $$('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", function (e) {
+          const target = this.getAttribute("href");
+          if (!target || target === "#") return;
+          const el = document.querySelector(target);
+          if (!el) return;
+          e.preventDefault();
+          const top = el.getBoundingClientRect().top + window.pageYOffset - 70;
+          window.scrollTo({ top, behavior: "smooth" });
+        });
+      });
+
+      /* ===== Pure JS Scroll Animations (sections + project cards) ===== */
+
+      /* utility: safely select project cards inside #projects
+   original markup uses classes like 'bg-[#151932] rounded-lg ...' - use the .rounded-lg inside #projects */
+      const projectCards = (() => {
+        const parent = $("#projects");
+        if (!parent) return [];
+        return Array.from(parent.querySelectorAll(".rounded-lg"));
+      })();
+
+      const sections = Array.from(document.querySelectorAll("section"));
+
+      /* add initial classes (hidden states injected via CSS above) */
+      sections.forEach((s) => s.classList.add("scroll-fade"));
+      projectCards.forEach((c) => c.classList.add("project-animate"));
+
+      /* IntersectionObserver for sections (slide-up fade) */
+      const sectionObserver = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              // Add visible class & unobserve for one-time animation
+              el.classList.add("scroll-visible");
+              obs.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+      );
+
+      sections.forEach((s) => sectionObserver.observe(s));
+
+      /* IntersectionObserver for project cards with stagger logic */
+      const cardObserver = new IntersectionObserver(
+        (entries, obs) => {
+          const visibleEntries = entries
+            .filter((en) => en.isIntersecting && !en.target.dataset.animated)
+            .sort(
+              (a, b) =>
+                projectCards.indexOf(a.target) - projectCards.indexOf(b.target)
+            );
+
+          visibleEntries.forEach((entry, idx) => {
+            const el = entry.target;
+            const delay = idx * 100; // slightly faster stagger
+            setTimeout(() => {
+              el.classList.add("project-visible");
+              el.dataset.animated = "true";
+              obs.unobserve(el);
+            }, delay);
+          });
+        },
+        {
+          threshold: 0.02, // triggers earlier
+          rootMargin: "150px 0px -50px 0px", // starts animation before card is in full view
+        }
+      );
+
+      projectCards.forEach((c) => cardObserver.observe(c));
+
+      /* ===== Additional Scroll Animations ===== */
+
+      // Get all elements with scroll animation classes
+      const scrollElements = document.querySelectorAll(
+        ".scroll-fade-in, .scroll-slide-left, .scroll-slide-right, .scroll-scale, .scroll-rotate, .stagger-animation"
+      );
+
+      // Intersection Observer for scroll animations
+      const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (
+          elementTop <=
+          (window.innerHeight || document.documentElement.clientHeight) /
+            dividend
+        );
+      };
+
+      const displayScrollElement = (element) => {
+        element.classList.add("visible");
+      };
+
+      const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+          if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+          }
+        });
+      };
+
+      // Initialize animations on scroll
+      window.addEventListener("scroll", () => {
+        handleScrollAnimation();
+      });
+
+      // Initial check for elements in view on page load
+      window.addEventListener("load", () => {
+        handleScrollAnimation();
+      });
+
+      // Stagger animation for list items
+      const staggerElements = document.querySelectorAll(".stagger-animation");
+      staggerElements.forEach((element) => {
+        const items = element.children;
+        Array.from(items).forEach((item, index) => {
+          item.style.transitionDelay = `${index * 0.1}s`;
+        });
+      });
+
+      /* ===== End of Script ===== */
+    </script>
+  </body>
+</html>

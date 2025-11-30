@@ -4,7 +4,7 @@ Personal portfolio and CV website showcasing my work as a Flutter Developer.
 
 ## 🌐 Live Demo
 
-Visit: [https://kieulan1912.github.io/lankv.github.io/](https://kieulan1912.github.io/lankv.github.io/)
+Visit: [https://kieulan1912.github.io/](https://kieulan1912.github.io/)
 
 ## 📋 About
 

@@ -30,7 +30,7 @@ This is my personal portfolio website built with HTML, CSS (Tailwind CSS), and J
 ## 📂 Project Structure
 
 ```
-lankv.github.io/
+kieulan1912.github.io/
 ├── index.html           # Main HTML file
 ├── favicon.png          # Website favicon
 ├── tailwind.config.js   # Tailwind CSS configuration
@@ -50,8 +50,8 @@ lankv.github.io/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/kieulan1912/lankv.github.io.git
-cd lankv.github.io
+git clone https://github.com/kieulan1912/kieulan1912.github.io.git
+cd kieulan1912.github.io
 ```
 
 2. Start a local server:

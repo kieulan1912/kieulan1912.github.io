@@ -120,7 +120,7 @@ Featured commercial projects:
 
 ## 📞 Contact
 
-- **Phone:** 0349845881
+- **Phone:** 0349.845.881
 - **Email:** kieuvanlan.1912@gmail.com
 - **Blog:** [kieulanflutterknowledge.blogspot.com](https://kieulanflutterknowledge.blogspot.com/)
 - **GitHub:** [github.com/kieulan1912](https://github.com/kieulan1912)

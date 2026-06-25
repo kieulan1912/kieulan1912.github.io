@@ -394,6 +394,166 @@
         transform: translateY(-5px);
       }
 
+      /* Work experience timeline */
+      .experience-timeline {
+        position: relative;
+        display: grid;
+        gap: 1.5rem;
+        padding-left: 2.25rem;
+      }
+
+      .experience-timeline::before {
+        content: "";
+        position: absolute;
+        top: 0.75rem;
+        bottom: 0.75rem;
+        left: 0.45rem;
+        width: 1px;
+        background: linear-gradient(
+          180deg,
+          rgba(100, 255, 218, 0.2),
+          rgba(100, 255, 218, 0.75),
+          rgba(100, 255, 218, 0.16)
+        );
+      }
+
+      .experience-item {
+        position: relative;
+      }
+
+      .experience-dot {
+        position: absolute;
+        top: 1.4rem;
+        left: -2.18rem;
+        width: 0.9rem;
+        height: 0.9rem;
+        border-radius: 999px;
+        background: var(--accent-primary);
+        border: 3px solid var(--bg-primary);
+        box-shadow: 0 0 0 5px rgba(100, 255, 218, 0.12),
+          0 0 24px rgba(100, 255, 218, 0.32);
+      }
+
+      .experience-card {
+        border: 1px solid rgba(100, 255, 218, 0.14);
+        background: linear-gradient(
+          135deg,
+          rgba(21, 25, 50, 0.96),
+          rgba(30, 33, 64, 0.72)
+        );
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
+        transition: transform 0.3s ease, border-color 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .experience-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(100, 255, 218, 0.38);
+        box-shadow: 0 22px 55px rgba(0, 0, 0, 0.22);
+      }
+
+      .experience-date {
+        border: 1px solid rgba(121, 192, 255, 0.3);
+        background: rgba(121, 192, 255, 0.08);
+      }
+
+      /* Profile avatar */
+      .profile-avatar-link {
+        display: inline-flex;
+        border-radius: 999px;
+      }
+
+      .profile-avatar-frame {
+        position: relative;
+        width: 11rem;
+        height: 11rem;
+        padding: 0.18rem;
+        border-radius: 999px;
+        background: rgba(10, 14, 39, 0.94);
+        box-shadow: 0 16px 42px rgba(0, 0, 0, 0.2),
+          0 0 0 1px rgba(100, 255, 218, 0.12);
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+
+      .profile-avatar-frame::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: conic-gradient(
+          from 0deg,
+          #64ffda,
+          #79c0ff,
+          #b39cff,
+          #f06292,
+          #64ffda
+        );
+        animation: avatarRingSpin 8s linear infinite;
+      }
+
+      .profile-avatar-frame::after {
+        content: "";
+        position: absolute;
+        inset: -0.28rem;
+        border-radius: inherit;
+        background: rgba(100, 255, 218, 0.08);
+        filter: blur(14px);
+        opacity: 0.32;
+        animation: avatarAuraPulse 3.8s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .profile-avatar-link:hover .profile-avatar-frame {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 22px 52px rgba(0, 0, 0, 0.26),
+          0 0 24px rgba(100, 255, 218, 0.14);
+      }
+
+      .profile-avatar {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center top;
+        border-radius: inherit;
+        background: var(--bg-secondary);
+        border: 0.28rem solid var(--bg-primary);
+      }
+
+      @keyframes avatarRingSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes avatarAuraPulse {
+        0%,
+        100% {
+          opacity: 0.2;
+          transform: scale(0.98);
+        }
+        50% {
+          opacity: 0.38;
+          transform: scale(1.025);
+        }
+      }
+
+      @media (min-width: 768px) {
+        .profile-avatar-frame {
+          width: 14rem;
+          height: 14rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .profile-avatar-frame::before,
+        .profile-avatar-frame::after {
+          animation: none;
+        }
+      }
+
       .circle {
         background: plum;
        
@@ -604,7 +764,7 @@
         </div>
         <div class="flex justify-center mt-8">
           <a
-            href="files/lankv_flutter_resume.pdf"
+            href="files/Kieu-Van-Lan_Flutter-Developer.pdf"
             target="_blank"
             class="px-4 md:px-6 py-2 md:py-3 border-2 border-[#64ffda] bg-transparent text-[#64ffda] no-underline rounded text-base md:text-lg transition-all duration-300 hover:bg-[#64ffda] hover:text-[#0a0e27]"
             >View Resume</a
@@ -628,12 +788,17 @@
         </div> -->
 
       <div class="flex flex-col w-full items-center justify-center scroll-scale">
-        <a href="images/lankv.jpg" target="_blank">
-          <div class="relative w-96 p-5  ">
+        <a
+          href="images/lankv.jpg"
+          target="_blank"
+          class="profile-avatar-link"
+          aria-label="View Kiều Văn Lân profile photo"
+        >
+          <div class="profile-avatar-frame">
             <img
               src="images/lankv.jpg"
               alt="Kiều Văn Lân"
-              class="w-full h-auto object-cover circle"
+              class="profile-avatar"
             />
           </div>
         </a>
@@ -646,7 +811,7 @@
             <i class="fa-solid fa-birthday-cake"></i> 19/12/1999
           </p>
           <p class="text-lg text-[#a0a0a0]">
-            <i class="fa-solid fa-phone"></i> 0349845881
+            <i class="fa-solid fa-phone"></i> 0349.845.881
           </p>
           <p class="text-lg text-[#a0a0a0]">
             <i class="fa-solid fa-envelope"></i> kieuvanlan.1912@gmail.com
@@ -682,44 +847,50 @@
           Work Experience
         </h3>
 
-        <div
-          class="relative border-l border-[#64ffda]/40 pl-8 space-y-12 scroll-fade-in"
-        >
+        <div class="experience-timeline scroll-fade-in">
           <!-- Item 1 -->
-          <div class="relative">
-            <span
-              class="scroll-fade-in absolute -left-[41px] top-2 w-4 h-4 bg-[#64ffda] rounded-full"
-            ></span>
-            <div class="ml-2 scroll-fade-in">
-              <p class="text-xl font-medium text-[#64ffda]">
-                Smart Solutions Vietnam (Onsite Bank MSB)
-              </p>
-              <p class="text-base text-gray-300">
-                Mobile Developer - Flutter
-              </p>
-              <p class="text-sm text-gray-400">12/2025 – 05/2026</p>
-              <ul class="mt-3 space-y-2 text-sm text-gray-300 list-disc ml-5">
+          <div class="experience-item scroll-fade-in">
+            <span class="experience-dot" aria-hidden="true"></span>
+            <article class="experience-card rounded-lg p-5 md:p-6">
+              <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                <div>
+                  <p class="text-xl font-semibold text-[#64ffda] leading-snug">
+                    Smart Solutions Vietnam (Onsite Bank MSB)
+                  </p>
+                  <p class="mt-1 text-base text-gray-300">
+                    Mobile Developer - Flutter
+                  </p>
+                </div>
+                <p class="experience-date w-fit shrink-0 rounded-full px-3 py-1 text-sm font-medium text-[#79c0ff]">
+                  12/2025 – 05/2026
+                </p>
+              </div>
+              <ul class="mt-5 space-y-2 text-sm text-gray-300 list-disc ml-5 marker:text-[#64ffda]">
                 <li>Onsite tại Ngân hàng MSB, phát triển Flutter module cho nghiệp vụ định giá tài sản và quản lý yêu cầu/lịch khảo sát, tích hợp vào super-app Mconnect theo mô hình Add-to-App</li>
                 <li>Phối hợp với PO/BA/Designer/Backend để triển khai tính năng end-to-end, đồng thời đề xuất giải pháp tối ưu hiệu năng, độ ổn định và khả năng mở rộng trên production</li>
                 <li>Ứng dụng AI tools (ChatGPT, Claude, Cursor) trong phân tích requirement, tạo technical proposal, review code và hỗ trợ debug nhằm rút ngắn thời gian phát triển feature</li>
               </ul>
-            </div>
+            </article>
           </div>
 
           <!-- Item 2 -->
-          <div class="relative">
-            <span
-              class="scroll-fade-in absolute -left-[41px] top-2 w-4 h-4 bg-[#64ffda] rounded-full"
-            ></span>
-            <div class="ml-2 scroll-fade-in">
-              <p class="text-xl font-medium text-[#64ffda]">
-                Công ty Cổ phần Giao Hàng Tiết Kiệm (GHTK JSC)
-              </p>
-              <p class="text-base text-gray-300">
-                Mobile Developer - Flutter
-              </p>
-              <p class="text-sm text-gray-400">02/2024 – 12/2025</p>
-              <ul class="mt-3 space-y-2 text-sm text-gray-300 list-disc ml-5">
+          <div class="experience-item scroll-fade-in">
+            <span class="experience-dot" aria-hidden="true"></span>
+            <article class="experience-card rounded-lg p-5 md:p-6">
+              <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                <div>
+                  <p class="text-xl font-semibold text-[#64ffda] leading-snug">
+                    Công ty Cổ phần Giao Hàng Tiết Kiệm (GHTK JSC)
+                  </p>
+                  <p class="mt-1 text-base text-gray-300">
+                    Mobile Developer - Flutter
+                  </p>
+                </div>
+                <p class="experience-date w-fit shrink-0 rounded-full px-3 py-1 text-sm font-medium text-[#79c0ff]">
+                  02/2024 – 12/2025
+                </p>
+              </div>
+              <ul class="mt-5 space-y-2 text-sm text-gray-300 list-disc ml-5 marker:text-[#64ffda]">
                 <li>Phối hợp với Product Owner, Designer và các team liên quan để phát triển tính năng theo lộ trình sản phẩm</li>
                 <li>Thiết kế, phát triển và duy trì component, template và thư viện dùng chung cho nhiều module như Chat, News, Wallet, eKYC và AI modules</li>
                 <li>Phát triển và tích hợp Flutter Module (Add-to-App) vào ứng dụng iOS/Android native</li>
@@ -728,29 +899,33 @@
                 <li>Bảo trì, refactor codebase, xử lý các vấn đề kỹ thuật tồn đọng và cải thiện chất lượng hệ thống</li>
                 <li>Tham gia review code, mentoring và hỗ trợ kỹ thuật cho thành viên mới trong team</li>
               </ul>
-            </div>
+            </article>
           </div>
 
           <!-- Item 3 -->
-          <div class="relative">
-            <span
-              class="scroll-fade-in absolute -left-[42px] top-2 w-4 h-4 bg-[#64ffda] rounded-full"
-            ></span>
-            <div class="ml-2 scroll-fade-in">
-              <p class="text-xl font-medium text-[#64ffda]">
-                Công ty TNHH Tư vấn & Phát triển Công nghệ Bách Khoa Hà Nội
-              </p>
-              <p class="text-base text-gray-300">
-                Flutter Develop | FE Angular
-              </p>
-              <p class="text-sm text-gray-400">03/2021 – 01/2024 (3 Năm)</p>
-              <ul class="mt-3 space-y-2 text-sm text-gray-300 list-disc ml-5">
+          <div class="experience-item scroll-fade-in">
+            <span class="experience-dot" aria-hidden="true"></span>
+            <article class="experience-card rounded-lg p-5 md:p-6">
+              <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                <div>
+                  <p class="text-xl font-semibold text-[#64ffda] leading-snug">
+                    Công ty TNHH Tư vấn & Phát triển Công nghệ Bách Khoa Hà Nội
+                  </p>
+                  <p class="mt-1 text-base text-gray-300">
+                    Flutter Develop | FE Angular
+                  </p>
+                </div>
+                <p class="experience-date w-fit shrink-0 rounded-full px-3 py-1 text-sm font-medium text-[#79c0ff]">
+                  03/2021 – 01/2024 (3 Năm)
+                </p>
+              </div>
+              <ul class="mt-5 space-y-2 text-sm text-gray-300 list-disc ml-5 marker:text-[#64ffda]">
                 <li>Có gần 1 năm kinh nghiệm phát triển Web Frontend với Angular (HTML5, CSS3, TypeScript), tham gia các dự án ERP</li>
                 <li>Phát triển ứng dụng mobile cho khách hàng nội bộ và cơ quan nhà nước, hỗ trợ build & publish app lên store</li>
                 <li>Làm việc với RESTful API, Firebase, Google Maps, tích hợp SDK bên thứ ba và xử lý nghiệp vụ phức tạp</li>
                 <li>Tham gia review code, tối ưu hiệu năng, hướng dẫn thực tập sinh, fresher và training nội bộ mobile team</li>
               </ul>
-            </div>
+            </article>
           </div>
         </div>
       </div>
@@ -1331,7 +1506,7 @@
           <div class="w-4/5">
             <h4 class="text-[#64ffda] mb-1">Call</h4>
             <p class="text-[#a0a0a0] group-hover:text-[#64ffda]">
-              0349845881
+              0349.845.881
             </p>
           </div>
         </a>
